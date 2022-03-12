@@ -1,0 +1,27 @@
+{
+    "name": "patrick/hill",
+    "description": "A Ecommerce Template",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ianpatricck",
+            "email": "contatoianpatrick@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "pecee/simple-router": "4.3.7.2",
+        "league/plates": "3.*"
+    },
+    "require-dev": {
+        "robmorgan/phinx": "dev-master",
+        "fzaninotto/faker": "1.9.x-dev",
+        "vlucas/phpdotenv": "5.4.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hill\\": "web/"
+        }
+    }
+}
