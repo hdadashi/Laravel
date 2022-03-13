@@ -83,11 +83,67 @@ class User extends Connection {
     }
 
     public function delete() {
-        // ..
+        // .. 
     }
 
     public function update() {
-        // ..
+        ["name" => $name, "email" => $email] = $_REQUEST;
+
+        $errorMessage;
+
+        session_start();
+
+        $id = $_SESSION["user"]["id"];
+
+        $userDataStmt = $this->connect()->prepare("SELECT * FROM users WHERE id = ?");
+        $userDataStmt->execute([$id]);
+        $userData = $userDataStmt->fetch(); 
+
+        if ($name && !empty($name)) {
+            
+            $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS); 
+            
+            if (preg_match("/^([a-z]|[A-Z]|[0-9]| |_|-)+$/", $name)) {
+                
+                if (preg_match("~[0-9]+~", $name) == 0) {
+                        
+                    $querySQL = "UPDATE users SET name = ? WHERE id = ?";
+                    $stmt = $this->connect()->prepare($querySQL)->execute([$name, $id]);
+                    $stmt = null;
+ 
+                } else {
+                    $errorMessage = "Invalid name format";
+                }
+
+            } else {
+                $errorMessage = "Invalid name format";
+            }
+        } 
+        
+        if ($email && !empty($email)) {
+            
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                     
+                if ($userData["email"] !== $email) {
+                    
+                    $stmt = $this->connect()->prepare("UPDATE users SET email = ? WHERE id = ?");
+                    $stmt->execute([$email, $id]);
+                    $stmt = null;
+
+                } else {
+                    $errorMessage = "Email already exists";
+                }
+
+            } else {
+                $errorMessage = "Invalid email format";
+            }
+        }
+
+        if (isset($errorMessage)) {
+            echo $errorMessage;
+        } else {
+            redirect("/config/user");
+        } 
     }
 
     public function login() {
@@ -99,7 +155,7 @@ class User extends Connection {
         if ($email && $password) {
 
             $query = "SELECT * FROM users WHERE email = ?";
-            
+
             $stmt = $this->connect()->prepare($query);
             $stmt->execute([$email]);
             $res = $stmt->fetch();      
@@ -107,11 +163,11 @@ class User extends Connection {
             $stmt = null;
 
             if ($res) {
-                
+
                 if (password_verify($password, $res["password"])) {
 
                     session_start();
-                    
+
                     $_SESSION["user"] = $res;
 
                     redirect("/home");
