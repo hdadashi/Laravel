@@ -5,6 +5,10 @@
     <title>Hill</title>
 </head>
 <body>
-    <h1>Config</h1> 
+    <h1>Config</h1>
+
+    <form method="POST" action="/user/delete">
+        <button type="submit">Delete account</button>
+    </form>
 </body>
 </html>
