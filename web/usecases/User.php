@@ -83,12 +83,21 @@ class User extends Connection {
     }
 
     public function delete() {
-        // .. 
+        session_start();
+
+        $id = $_SESSION["user"]["id"];
+
+        $stmt = $this->connect()->prepare("DELETE FROM users WHERE id = ?");
+        $stmt->execute([$id]);
+
+        session_unset();
+        session_destroy();
+
+        redirect("/");
     }
 
     public function update() {
         ["name" => $name, "email" => $email] = $_REQUEST;
-
         $errorMessage;
 
         session_start();
@@ -142,7 +151,7 @@ class User extends Connection {
         if (isset($errorMessage)) {
             echo $errorMessage;
         } else {
-            redirect("/config/user");
+            redirect("/config/profile");
         } 
     }
 
