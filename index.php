@@ -26,11 +26,13 @@ $user = new User();
 Router::get("/", fn() => $page->index());
 Router::get("/register", fn() => $page->register());
 Router::get("/home", fn() => $page->home());
+Router::get("/config/user", fn() => $page->config());
 
 // User
 
 Router::post("/user/register", fn() => $user->create());
 Router::post("/user/login", fn() => $user->login());
+Router::post("/user/update", fn() => $user->update());
 Router::get("/logout", fn() => $user->logout());
 
 // Admin
