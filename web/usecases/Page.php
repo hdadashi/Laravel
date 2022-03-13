@@ -34,6 +34,15 @@ class Page {
 
         redirect("/");
     }
+
+    public function config() {
+        if (Auth::isLogged("user")) {
+            return $this->templates->render("config/profile");
+        }
+
+        redirect("/");
+    }
+
     public function admin() {
         return $this->templates->render("admin/index");
     }
