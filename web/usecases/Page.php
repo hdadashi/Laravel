@@ -37,11 +37,20 @@ class Page {
 
     public function config() {
         if (Auth::isLogged("user")) {
+            return $this->templates->render("config/index");
+        }
+
+        redirect("/");
+    }
+
+    public function profile() {
+        if (Auth::isLogged("user")) {
             return $this->templates->render("config/profile");
         }
 
         redirect("/");
     }
+
 
     public function admin() {
         return $this->templates->render("admin/index");
