@@ -3,6 +3,7 @@
 namespace Hill\Usecases;
 
 use Hill\Usecases\Auth;
+use Hill\Usecases\Admin;
 
 class Page {
 
@@ -24,6 +25,7 @@ class Page {
         if (Auth::isLogged("user")) {
             return redirect("/home");
         }
+
         return $this->templates->render("register");
     }
     
@@ -51,9 +53,28 @@ class Page {
         redirect("/");
     }
 
-
     public function admin() {
-        return $this->templates->render("admin/index");
+        $admin = new Admin;
+        
+        if ($admin->exists()) {
+            if (Auth::isLogged("admin")) {
+                redirect("/admin/dashboard");
+            }
+
+            return $this->templates->render("admin/index");
+        } else {
+            return $this->templates->render("admin/create");
+        }
+
     }
+
+    public function adminDashboard() {
+        if (Auth::isLogged("admin")) {
+            return $this->templates->render("admin/dashboard");
+        }
+
+        redirect("/admin");
+    }
+
 }
 
