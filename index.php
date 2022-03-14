@@ -6,6 +6,7 @@ require __DIR__ . "/web/database/Connection.php";
 
 require __DIR__ . "/web/usecases/Page.php";
 require __DIR__ . "/web/usecases/User.php";
+require __DIR__ . "/web/usecases/Product.php";
 require __DIR__ . "/web/usecases/Auth.php";
 require __DIR__ . "/web/usecases/Admin.php";
 
@@ -16,10 +17,12 @@ use Pecee\SimpleRouter\SimpleRouter as Router;
 use Hill\Usecases\Page;
 use Hill\Usecases\User;
 use Hill\Usecases\Admin;
+use Hill\Usecases\Product;
 
 $page = new Page(new League\Plates\Engine("ui/views", "html"));
 $user = new User();
 $admin = new Admin();
+$product = new Product();
 
 /*
  * Routing
@@ -50,6 +53,9 @@ Router::get("/logout", fn() => $user->logout());
 Router::post("/admin/create", fn() => $admin->create());
 Router::post("/admin/login", fn() => $admin->login());
 
+Router::post("/product/create", fn() => $product->create());
+Router::post("/product/update", fn() => $product->update());
+Router::post("/product/delete", fn() => $product->delete());
 
 // Start Routes
 
