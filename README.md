@@ -1,5 +1,5 @@
 # Hill
-## :credit_card: A Ecommerce Template
+## :credit_card: A eCommerce Template
 
 > status: dev
 
