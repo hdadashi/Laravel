@@ -1,0 +1,30 @@
+:root {
+    --main: #0b58b3;
+    --primary: #3b79c0;
+    --secondary: #6c9ad1;
+    --light: #e6eef7;
+    --dark: #042347;
+    --mediumdark: #06346b;
+    --extradark: #021123;
+}
+
+body {
+    background-color: var(--light);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Anonymous Pro";
+    src: url("../fonts/anonymous-pro.woff2");
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("../fonts/nunito.woff2");
+}
+

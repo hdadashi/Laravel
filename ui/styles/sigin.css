@@ -1,0 +1,63 @@
+.sigin {
+    padding-top: 20vh;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sigin h1 {
+    font-family: "Nunito";
+    font-weight: 100;
+    font-size: 18pt;
+    color: gray;
+}
+
+.sigin_container {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    padding: 2rem;
+}
+
+.sigin_container form input {
+    font-family: "Nunito";
+    padding: .5rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 12pt;
+}
+
+.sigin_container form input:hover {
+    background-color: lightgray;
+    transition-duration: .5s;
+}
+
+.sigin_container form input:focus {
+    outline: none; 
+    background-color: lightgray;
+}
+
+.sigin_container form button {
+    font-size: 12pt;
+    padding: .5rem;
+    border: none;
+    background-color: var(--secondary);
+    font-family: "Nunito";
+    border-radius: 5px;
+    color: white;
+}
+
+.sigin_container form button:hover {
+    background-color: var(--primary);
+    cursor: pointer;
+    transition-duration: .5s;
+}
+
+@media screen and (max-width: 600px) {
+
+    .sigin_container form input, .sigin_container form button {
+        margin: .5rem;
+    }
+}
+
