@@ -50,3 +50,26 @@
     background-color: var(--main);
     transition-duration: .5s;
 }
+
+@media screen and (max-width: 1500px) {
+
+    .signup form {
+        width: 40%;
+    }
+
+    .signup form h1 {
+        font-size: 18pt;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .signup form {
+        width: 80%;
+    }
+
+    .signup form input {
+        width: 80%;
+        font-size: 15px;
+    }
+}
