@@ -1,0 +1,52 @@
+.signup {
+    margin-top: 20vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25vh;
+}
+
+.signup form {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.signup form h1 {
+    margin: 1.5rem;
+    font-family: "Nunito";
+    font-weight: 100;
+    letter-spacing: 2.5px;
+    color: dimgray;
+}
+
+.signup form input {
+    margin: .2rem;
+    padding: .8rem;
+    font-size: 13pt;
+    border-radius: 10px;
+    border: .001rem solid lightgray;
+}
+
+.signup form input:focus {
+    outline: .09rem solid var(--secondary);
+}
+
+.signup form button {
+    border: none;
+    padding: .6rem;
+    margin-top: 2vh;
+    font-size: 12pt;
+    background: var(--primary);
+    color: white;
+    border-radius: 5px;
+}
+
+.signup form button:hover {
+    cursor: pointer;
+    background-color: var(--main);
+    transition-duration: .5s;
+}
