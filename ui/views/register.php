@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/ui/styles/navbar.css">
         <link rel="stylesheet" type="text/css" href="/ui/styles/signup.css">
         <link rel="stylesheet" type="text/css" href="/ui/styles/footer.css">
+        <link rel="stylesheet" type="text/css" href="/ui/styles/cards.css">
 
     </head>
     <body>
@@ -35,9 +36,17 @@
                 <input type="password" name="password" placeholder="Password" />
                 <input type="password" name="passwordConfirm" placeholder="Confirm the password" />
                 <button type="submit">Create account</button>
+
+
+                <?php if(isset($_SESSION["error"])) { ?>
+
+                    <span class="card__error" style="margin-top: 20px;"><?= $this->e($_SESSION['error']) ?></span>
+
+                <?php } session_unset(); ?>
+
             </form>
         </div>
-
+ 
         <footer>
             <main>
                 <nav>

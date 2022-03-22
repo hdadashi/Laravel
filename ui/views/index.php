@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="/ui/styles/signin.css">
         <link rel="stylesheet" type="text/css" href="/ui/styles/products.css">
         <link rel="stylesheet" type="text/css" href="/ui/styles/footer.css">
+        <link rel="stylesheet" type="text/css" href="/ui/styles/cards.css">
     </head>
     <body>
 
@@ -46,17 +47,11 @@
                 </form>
             </div>
 
-            <?php
-                if(isset($_SESSION["error"])) {
-            ?>
-                <span class="signin__error"><?= $this->e($_SESSION['error']) ?></span>
-            <?php
+            <?php if(isset($_SESSION["error"])) { ?>
+                
+                <span class="card__error"><?= $this->e($_SESSION['error']) ?></span>
             
-            }
-           
-            session_unset();
-
-            ?>
+            <?php } session_unset(); ?>
 
         </div>
 
