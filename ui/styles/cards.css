@@ -1,0 +1,8 @@
+.card__error {
+    background-color: #e54e67;
+    color: white;
+    font-family: "Nunito";
+    padding: .4rem;
+    font-size: 13pt;
+    border-radius: 8px;
+}
