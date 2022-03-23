@@ -18,7 +18,7 @@ class Page {
             return redirect("/home");
         }
         
-        return $this->templates->render("index");
+        return $this->templates->render("index", ["sla" => "sla"]);
     }
 
     public function register() {
@@ -63,7 +63,7 @@ class Page {
 
             return $this->templates->render("admin/index");
         } else {
-            return $this->templates->render("admin/create");
+            redirect("/admin/create");
         }
 
     }
@@ -74,6 +74,14 @@ class Page {
         }
 
         redirect("/admin");
+    }
+
+    public function adminCreate() {
+        if (Auth::isLogged("admin")) {
+            redirect("/admin");
+        }
+
+        return $this->templates->render("admin/create");
     }
 
 }
