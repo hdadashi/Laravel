@@ -51,7 +51,7 @@
                 
                 <span class="card__error"><?= $this->e($_SESSION['error']) ?></span>
             
-            <?php } session_unset(); ?>
+            <?php } unset($_SESSION['error']); ?>
 
         </div>
 
@@ -100,29 +100,29 @@
         <footer>
             <main>
                 <nav>
-                    <h1>About</h1>
+                    <h1>about</h1>
                     <ul>
-                        <li><a href="">Label1<a></li>
-                        <li><a href="">Label2<a></li>
-                        <li><a href="">Label3<a></li>
+                        <li><a href="">label1<a></li>
+                        <li><a href="">label2<a></li>
+                        <li><a href="">label3<a></li>
                     </ul>
                 </nav>
 
                 <nav>
-                    <h1>Services</h1>
+                    <h1>services</h1>
                     <ul>
-                        <li><a href="">Label1<a></li>
-                        <li><a href="">Label2<a></li>
-                        <li><a href="">Label3<a></li>
+                        <li><a href="">label1<a></li>
+                        <li><a href="">label2<a></li>
+                        <li><a href="">label3<a></li>
                     </ul>
                 </nav>
 
                 <nav>
-                    <h1>Contact</h1>
+                    <h1>contact</h1>
                     <ul>
-                        <li><a href="">Label1<a></li>
-                        <li><a href="">Label2<a></li>
-                        <li><a href="">Label3<a></li>
+                        <li><a href="">label1<a></li>
+                        <li><a href="">label2<a></li>
+                        <li><a href="">label3<a></li>
                     </ul>
                 </nav>
             </main> 

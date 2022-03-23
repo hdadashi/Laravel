@@ -42,7 +42,7 @@
 
                     <span class="card__error" style="margin-top: 20px;"><?= $this->e($_SESSION['error']) ?></span>
 
-                <?php } session_unset(); ?>
+                <?php } unset($_SESSION['error']); ?>
 
             </form>
         </div>
