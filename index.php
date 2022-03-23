@@ -19,7 +19,7 @@ use Hill\Usecases\User;
 use Hill\Usecases\Admin;
 use Hill\Usecases\Product;
 
-$page = new Page(new League\Plates\Engine("ui/views", "html"));
+$page = new Page(new League\Plates\Engine("ui/views", "php"));
 $user = new User();
 $admin = new Admin();
 $product = new Product();
@@ -37,6 +37,7 @@ Router::get("/home", fn() => $page->home());
 Router::get("/config", fn() => $page->config());
 Router::get("/config/profile", fn() => $page->profile());
 Router::get("/admin", fn() => $page->admin());
+Router::get("/admin/create", fn() => $page->adminCreate());
 Router::get("/admin/dashboard", fn() => $page->adminDashboard());
 
 // User
