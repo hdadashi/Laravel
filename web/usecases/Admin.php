@@ -5,9 +5,9 @@ namespace Hill\Usecases;
 use Hill\Database\Connection;
 
 class Admin extends Connection {
- 
+
     public function create() {
-        
+
         $errorMessage;
 
         [
@@ -21,47 +21,43 @@ class Admin extends Connection {
         if ($name && $email && $password && $passwordConfirm) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
+                $name = filter_var($name, FILTER_SANITIZE_STRING);
                 $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS); 
 
-                if (preg_match("/^([a-z]|[A-Z]|[0-9]| |_|-)+$/", $name)) {
 
-                    if (preg_match("~[0-9]+~", $name) == 0) {
+                if (preg_match("~[0-9]+~", $name) == 0) {
 
-                        if ($password === $passwordConfirm) {
+                    if ($password === $passwordConfirm) {
 
-                            if (strlen($password) >= 8) {
+                        if (strlen($password) >= 8) {
 
-                                $stmt = $this->connect()->prepare("SELECT email FROM users WHERE email = ?");
-                                $stmt->execute([$email]);
-                                $res = $stmt->fetch();  
+                            $stmt = $this->connect()->prepare("SELECT email FROM users WHERE email = ?");
+                            $stmt->execute([$email]);
+                            $res = $stmt->fetch();  
 
+                            $stmt = null;
+
+                            if (!$res) {
+
+                                $insertSQL = "INSERT INTO users(name, email, password, is_admin) VALUES (?, ?, ?, ?)";
+
+                                $hash = password_hash($password, PASSWORD_DEFAULT);
+
+                                $stmt = $this->connect()->prepare($insertSQL)->execute([$name, strtolower($email), $hash, true]);
                                 $stmt = null;
 
-                                if (!$res) {
-
-                                    $insertSQL = "INSERT INTO users(name, email, password, is_admin) VALUES (?, ?, ?, ?)";
-
-                                    $hash = password_hash($password, PASSWORD_DEFAULT);
-
-                                    $stmt = $this->connect()->prepare($insertSQL)->execute([$name, strtolower($email), $hash, true]);
-                                    $stmt = null;
-
-                                    redirect("/admin", 200);
-
-                                } else {
-                                    $errorMessage = "Email already exists";    
-                                }
+                                redirect("/admin", 200);
 
                             } else {
-                                $errorMessage = "Password must be at least 8 characters long";
-                            }  
+                                $errorMessage = "Email already exists";    
+                            }
 
                         } else {
-                            $errorMessage = "Passwords not match";
-                        }
+                            $errorMessage = "Password must be at least 8 characters long";
+                        }  
 
                     } else {
-                        $errorMessage = "Invalid name format";
+                        $errorMessage = "Passwords not match";
                     }
 
                 } else {
@@ -76,7 +72,11 @@ class Admin extends Connection {
         }
 
         if (isset($errorMessage)) {
-            echo $errorMessage;
+            session_start();
+
+            $_SESSION["error"] = $errorMessage;
+
+            redirect("/admin");
         }
     }
 
@@ -96,7 +96,7 @@ class Admin extends Connection {
     }
 
     public function login() {
-        
+
         $errorMessage;
 
         ["email" => $email, "password" => $password] = $_REQUEST;
@@ -134,7 +134,11 @@ class Admin extends Connection {
         }
 
         if (isset($errorMessage)) {
-            echo $errorMessage;
+            session_start();
+
+            $_SESSION["error"] = $errorMessage;
+
+            redirect("/admin");           
         }
     }
 }
