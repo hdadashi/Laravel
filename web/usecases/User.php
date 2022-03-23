@@ -2,8 +2,6 @@
 
 namespace Hill\Usecases;
 
-require __DIR__ . "/../database/Connection.php";
-
 use Hill\Database\Connection;
 
 class User extends Connection {
@@ -21,55 +19,50 @@ class User extends Connection {
         ] = $_REQUEST;
 
         if ($name && $email && $password && $passwordConfirm) {
+            
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
                 $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS); 
+                $name = filter_var($name, FILTER_SANITIZE_STRING);
 
-                if (preg_match("/^([a-z]|[A-Z]|[0-9]| |_|-)+$/", $name)) {
+                if (preg_match("~[0-9]+~", $name) == 0) {
 
-                    if (preg_match("~[0-9]+~", $name) == 0) {
+                    if ($password === $passwordConfirm) {
 
-                        if ($password === $passwordConfirm) {
+                        if (strlen($password) >= 8) {
 
-                            if (strlen($password) >= 8) {
+                            $stmt = $this->connect()->prepare("SELECT email FROM users WHERE email = ?");
+                            $stmt->execute([$email]);
+                            $res = $stmt->fetch();  
 
-                                $stmt = $this->connect()->prepare("SELECT email FROM users WHERE email = ?");
-                                $stmt->execute([$email]);
-                                $res = $stmt->fetch();  
+                            $stmt = null;
 
+                            if (!$res) {
+
+                                $insertSQL = "INSERT INTO users(name, email, password) VALUES (?, ?, ?)";
+
+                                $hash = password_hash($password, PASSWORD_DEFAULT);
+
+                                $stmt = $this->connect()->prepare($insertSQL)->execute([$name, strtolower($email), $hash]);
                                 $stmt = null;
 
-                                if (!$res) {
-
-                                    $insertSQL = "INSERT INTO users(name, email, password) VALUES (?, ?, ?)";
-
-                                    $hash = password_hash($password, PASSWORD_DEFAULT);
-
-                                    $stmt = $this->connect()->prepare($insertSQL)->execute([$name, strtolower($email), $hash]);
-                                    $stmt = null;
-
-                                    redirect("/", 200);
-
-                                } else {
-                                    $errorMessage = "Email already exists";    
-                                }
+                                redirect("/", 200);
 
                             } else {
-                                $errorMessage = "Password must be at least 8 characters long";
-                            }  
+                                $errorMessage = "Email already exists";    
+                            }
 
                         } else {
-                            $errorMessage = "Passwords not match";
-                        }
+                            $errorMessage = "Password must be at least 8 characters long";
+                        }  
 
                     } else {
-                        $errorMessage = "Invalid name format";
+                        $errorMessage = "Passwords not match";
                     }
 
                 } else {
                     $errorMessage = "Invalid name format";
-                }
-
+                } 
             } else {
                 $errorMessage = "Invalid email format";
             }
@@ -78,7 +71,12 @@ class User extends Connection {
         }
 
         if (isset($errorMessage)) {
-            echo $errorMessage;
+
+            session_start();
+
+            $_SESSION["error"] = $errorMessage;
+
+            redirect("/register");
         }
     }
 
@@ -109,17 +107,17 @@ class User extends Connection {
         $userData = $userDataStmt->fetch(); 
 
         if ($name && !empty($name)) {
-            
+
             $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS); 
-            
+
             if (preg_match("/^([a-z]|[A-Z]|[0-9]| |_|-)+$/", $name)) {
-                
+
                 if (preg_match("~[0-9]+~", $name) == 0) {
-                        
+
                     $querySQL = "UPDATE users SET name = ? WHERE id = ?";
                     $stmt = $this->connect()->prepare($querySQL)->execute([$name, $id]);
                     $stmt = null;
- 
+
                 } else {
                     $errorMessage = "Invalid name format";
                 }
@@ -128,13 +126,13 @@ class User extends Connection {
                 $errorMessage = "Invalid name format";
             }
         } 
-        
+
         if ($email && !empty($email)) {
-            
+
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                     
+
                 if ($userData["email"] !== $email) {
-                    
+
                     $stmt = $this->connect()->prepare("UPDATE users SET email = ? WHERE id = ?");
                     $stmt->execute([$email, $id]);
                     $stmt = null;
@@ -194,7 +192,13 @@ class User extends Connection {
         }
 
         if (isset($errorMessage)) {
-            echo $errorMessage;
+
+            session_start();
+
+            $_SESSION["error"] = $errorMessage;
+
+            redirect("/");
+
         }
     }
 
