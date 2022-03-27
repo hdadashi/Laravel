@@ -4,20 +4,20 @@ require __DIR__ . "/vendor/autoload.php";
 
 require __DIR__ . "/web/database/Connection.php";
 
-require __DIR__ . "/web/usecases/Page.php";
-require __DIR__ . "/web/usecases/User.php";
-require __DIR__ . "/web/usecases/Product.php";
-require __DIR__ . "/web/usecases/Auth.php";
-require __DIR__ . "/web/usecases/Admin.php";
+require __DIR__ . "/web/controllers/Page.php";
+require __DIR__ . "/web/controllers/User.php";
+require __DIR__ . "/web/controllers/Product.php";
+require __DIR__ . "/web/controllers/Auth.php";
+require __DIR__ . "/web/controllers/Admin.php";
 
-require __DIR__ . "/web/usecases/helper/helper.php";
+require __DIR__ . "/web/controllers/helper/helper.php";
 
 use Pecee\SimpleRouter\SimpleRouter as Router;
 
-use Hill\Usecases\Page;
-use Hill\Usecases\User;
-use Hill\Usecases\Admin;
-use Hill\Usecases\Product;
+use Hill\Controllers\Page;
+use Hill\Controllers\User;
+use Hill\Controllers\Admin;
+use Hill\Controllers\Product;
 
 $page = new Page(new League\Plates\Engine("ui/views", "php"));
 $user = new User();
