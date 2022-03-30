@@ -4,7 +4,7 @@ require __DIR__ . "/vendor/autoload.php";
 
 require __DIR__ . "/web/database/Connection.php";
 
-require __DIR__ . "/web/controllers/Page.php";
+require __DIR__ . "/web/controllers/View.php";
 require __DIR__ . "/web/controllers/User.php";
 require __DIR__ . "/web/controllers/Product.php";
 require __DIR__ . "/web/controllers/Auth.php";
@@ -14,12 +14,12 @@ require __DIR__ . "/web/controllers/helper/helper.php";
 
 use Pecee\SimpleRouter\SimpleRouter as Router;
 
-use Hill\Controllers\Page;
+use Hill\Controllers\View;
 use Hill\Controllers\User;
 use Hill\Controllers\Admin;
 use Hill\Controllers\Product;
 
-$page = new Page(new League\Plates\Engine("ui/views", "php"));
+$view = new View(new League\Plates\Engine("ui/views", "php"));
 $user = new User();
 $admin = new Admin();
 $product = new Product();
@@ -31,14 +31,14 @@ $product = new Product();
 
 // Page
 
-Router::get("/", fn() => $page->index());
-Router::get("/register", fn() => $page->register());
-Router::get("/home", fn() => $page->home());
-Router::get("/config", fn() => $page->config());
-Router::get("/config/profile", fn() => $page->profile());
-Router::get("/admin", fn() => $page->admin());
-Router::get("/admin/create", fn() => $page->adminCreate());
-Router::get("/admin/dashboard", fn() => $page->adminDashboard());
+Router::get("/", fn() => $view->index());
+Router::get("/register", fn() => $view->register());
+Router::get("/home", fn() => $view->home());
+Router::get("/config", fn() => $view->config());
+Router::get("/config/profile", fn() => $view->profile());
+Router::get("/admin", fn() => $view->admin());
+Router::get("/admin/create", fn() => $view->adminCreate());
+Router::get("/admin/dashboard", fn() => $view->adminDashboard());
 
 // User
 
