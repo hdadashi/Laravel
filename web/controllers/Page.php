@@ -2,87 +2,30 @@
 
 namespace Hill\Controllers;
 
-use Hill\Controllers\Auth;
-use Hill\Controllers\Admin;
+use Hill\Database\Connection;
 
-class Page {
+class Page extends Connection {
 
-    private $templates;
-
-    public function __construct(\League\Plates\Engine $templates) {
-        $this->templates = $templates;
-    }
-
-    public function index() {
-        if (Auth::isLogged("user")) {
-            return redirect("/home");
-        }
+    public function update() {
         
-        return $this->templates->render("index", ["sla" => "sla"]);
+        ["name" => $name] = $_REQUEST;
+
+        $stmt = $this->connect()->prepare("UPDATE pages SET name = '{$name}' WHERE name = '{$name}'");
+        $stmt->execute();
+        $stmt = null;
+
+        echo $name;
     }
 
-    public function register() {
-        if (Auth::isLogged("user")) {
-            return redirect("/home");
-        }
+    public function read(): Array {
+        $stmt = $this->connect()->prepare("SELECT * FROM pages");
+        $stmt->execute();
 
-        return $this->templates->render("register");
-    }
-    
-    public function home() {
-        if (Auth::isLogged("user")) {
-            return $this->templates->render("home");
-        }
+        $pages = $stmt->fetchAll(); 
 
-        redirect("/");
-    }
+        $stmt = null;  
 
-    public function config() {
-        if (Auth::isLogged("user")) {
-            return $this->templates->render("config/index");
-        }
-
-        redirect("/");
-    }
-
-    public function profile() {
-        if (Auth::isLogged("user")) {
-            return $this->templates->render("config/profile");
-        }
-
-        redirect("/");
-    }
-
-    public function admin() {
-        $admin = new Admin;
-        
-        if ($admin->exists()) {
-            if (Auth::isLogged("admin")) {
-                redirect("/admin/dashboard");
-            }
-
-            return $this->templates->render("admin/index");
-        } else {
-            redirect("/admin/create");
-        }
-
-    }
-
-    public function adminDashboard() {
-        if (Auth::isLogged("admin")) {
-            return $this->templates->render("admin/dashboard");
-        }
-
-        redirect("/admin");
-    }
-
-    public function adminCreate() {
-        if (Auth::isLogged("admin")) {
-            redirect("/admin");
-        }
-
-        return $this->templates->render("admin/create");
-    }
-
+        return $pages;
+   }
 }
 
