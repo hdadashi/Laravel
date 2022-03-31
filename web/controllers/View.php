@@ -4,6 +4,7 @@ namespace Hill\Controllers;
 
 use Hill\Controllers\Auth;
 use Hill\Controllers\Admin;
+use Hill\Controllers\Page;
 
 class View {
 
@@ -70,7 +71,14 @@ class View {
 
     public function adminDashboard() {
         if (Auth::isLogged("admin")) {
-            return $this->templates->render("admin/dashboard");
+            
+            $page = new Page();
+            
+            $pages = $page->read();
+ 
+            return $this->templates->render("admin/dashboard", [
+                "pages" => $pages
+            ]);
         }
 
         redirect("/admin");
