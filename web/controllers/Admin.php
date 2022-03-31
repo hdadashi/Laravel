@@ -6,7 +6,7 @@ use Hill\Database\Connection;
 
 class Admin extends Connection {
 
-    public function create() {
+    public function create(): void {
 
         $errorMessage;
 
@@ -95,7 +95,7 @@ class Admin extends Connection {
         }
     }
 
-    public function login() {
+    public function login(): void {
 
         $errorMessage;
 
