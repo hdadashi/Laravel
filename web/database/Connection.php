@@ -8,7 +8,7 @@ class Connection {
 
     private $connection;
 
-    protected function connect() {
+    protected function connect(): PDO {
         $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . "/../../");
         $dotenv->load();
 
