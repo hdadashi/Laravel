@@ -4,13 +4,14 @@ require __DIR__ . "/vendor/autoload.php";
 
 require __DIR__ . "/web/database/Connection.php";
 
+require __DIR__ . "/web/controllers/Page.php";
 require __DIR__ . "/web/controllers/View.php";
 require __DIR__ . "/web/controllers/User.php";
 require __DIR__ . "/web/controllers/Product.php";
 require __DIR__ . "/web/controllers/Auth.php";
 require __DIR__ . "/web/controllers/Admin.php";
 
-require __DIR__ . "/web/controllers/helper/helper.php";
+require __DIR__ . "/web/helper.php";
 
 use Pecee\SimpleRouter\SimpleRouter as Router;
 
@@ -18,11 +19,13 @@ use Hill\Controllers\View;
 use Hill\Controllers\User;
 use Hill\Controllers\Admin;
 use Hill\Controllers\Product;
+use Hill\Controllers\Page;
 
 $view = new View(new League\Plates\Engine("ui/views", "php"));
 $user = new User();
 $admin = new Admin();
 $product = new Product();
+$page = new Page();
 
 /*
  * Routing
@@ -53,6 +56,8 @@ Router::get("/logout", fn() => $user->logout());
 
 Router::post("/admin/create", fn() => $admin->create());
 Router::post("/admin/login", fn() => $admin->login());
+
+Router::post("/page/update", fn() => $page->update());
 
 Router::post("/product/create", fn() => $product->create());
 Router::post("/product/update", fn() => $product->update());
