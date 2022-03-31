@@ -6,7 +6,7 @@ use Hill\Database\Connection;
 
 class User extends Connection {
 
-    public function create() {
+    public function create(): void {
 
         $errorMessage;
 
@@ -80,7 +80,7 @@ class User extends Connection {
         }
     }
 
-    public function delete() {
+    public function delete(): void {
         session_start();
 
         $id = $_SESSION["user"]["id"];
@@ -94,7 +94,7 @@ class User extends Connection {
         redirect("/");
     }
 
-    public function update() {
+    public function update(): void {
         ["name" => $name, "email" => $email] = $_REQUEST;
         $errorMessage;
 
@@ -153,7 +153,7 @@ class User extends Connection {
         } 
     }
 
-    public function login() {
+    public function login(): void {
 
         $errorMessage;
 
@@ -202,7 +202,7 @@ class User extends Connection {
         }
     }
 
-    public function logout() {
+    public function logout(): void {
         session_start();
         session_unset();
         session_destroy();
