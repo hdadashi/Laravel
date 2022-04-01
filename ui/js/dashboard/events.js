@@ -1,27 +1,44 @@
-const content = document.querySelectorAll("#content");
+const sidebarContent = document.querySelectorAll("#content");
 
-function cleanSections() {
-    content.forEach(node => node.style.display = "none");
-}
+const cleanSections = (element) => element.forEach(node => node.style.display = "none");
 
-var initialContentVisible;
+var initialSidebarContentVisible;
 
-content.forEach(node => {
+sidebarContent.forEach(node => {
     node.style.display = "none";
 
     if (node.className === "pages") {
-        initialContentVisible = node;
+        initialSidebarContentVisible = node;
     }
 });
 
-initialContentVisible.style.display = "flex";
+initialSidebarContentVisible.style.display = "flex";
 
-const showContent = (className) => {
+function showSidebarContent(className) {
 
-    cleanSections();
+    cleanSections(sidebarContent);
 
     const main = document.querySelector(`.${className}`);
 
     main.style.display = "flex";
+}
+
+// ----- Pages
+
+const pagesOption = document.querySelectorAll(".page_option");
+const pagesOptionUpdate = document.querySelectorAll(".page_option--update");
+
+cleanSections(pagesOption);
+cleanSections(pagesOptionUpdate);
+
+function displayPageOptions(id) {
+    const selectedPageOption = document.querySelector(`#option-${id}`); 
+
+    cleanSections(pagesOption);
+    cleanSections(pagesOptionUpdate);
+    
+    selectedPageOption.style.display = "flex"; 
+
+    pagesOptionUpdate.forEach(node => node.style.display = "flex");
 }
 
