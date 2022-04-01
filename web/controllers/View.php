@@ -12,6 +12,7 @@ class View {
 
     public function __construct(\League\Plates\Engine $templates) {
         $this->templates = $templates;
+        $this->templates->addFolder('contents', __DIR__ . '/../../ui/views/contents');
     }
 
     public function index() {
