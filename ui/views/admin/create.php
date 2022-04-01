@@ -46,34 +46,7 @@
         </div>
 
         <footer>
-            <main>
-                <nav>
-                    <h1>About</h1>
-                    <ul>
-                        <li><a href="">Label1<a></li>
-                        <li><a href="">Label2<a></li>
-                        <li><a href="">Label3<a></li>
-                    </ul>
-                </nav>
-
-                <nav>
-                    <h1>Services</h1>
-                    <ul>
-                        <li><a href="">Label1<a></li>
-                        <li><a href="">Label2<a></li>
-                        <li><a href="">Label3<a></li>
-                    </ul>
-                </nav>
-
-                <nav>
-                    <h1>Contact</h1>
-                    <ul>
-                        <li><a href="">Label1<a></li>
-                        <li><a href="">Label2<a></li>
-                        <li><a href="">Label3<a></li>
-                    </ul>
-                </nav>
-            </main> 
+            <?php $this->insert('contents::footer'); ?>
         </footer>
     </body>
 </html>
