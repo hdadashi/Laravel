@@ -1,6 +1,7 @@
 /vendor/
 phinx.php
 .env
+backlog.md
 
 node_modules
 *.log
