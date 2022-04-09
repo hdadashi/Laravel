@@ -1,4 +1,5 @@
-/vendor/
+server-side/vendor/
+:qa
 phinx.php
 .env
 backlog.md
