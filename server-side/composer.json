@@ -1,7 +1,7 @@
 {
-    "name": "patrick/hill",
-    "description": "A eCommerce Template",
-    "type": "project",
+    "name": "patrick/server-side",
+    "description": "Hill eCommerce Server-Side",
+    "type": "package",
     "license": "MIT",
     "authors": [
         {
@@ -9,17 +9,12 @@
             "email": "contatoianpatrick@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {
-        "phpmailer/phpmailer": "6.*"
-    },
+    "minimum-stability": "stable",
     "require-dev": {
-        "robmorgan/phinx": "dev-master",
-        "vlucas/phpdotenv": "5.4.x-dev"
+        "robmorgan/phinx": "^0.12.10",
+        "vlucas/phpdotenv": "^5.4"
     },
-    "autoload": {
-        "psr-4": {
-            "Hill\\": "src/"
-        }
+    "require": {
+        "bramus/router": "~1.6"
     }
 }
