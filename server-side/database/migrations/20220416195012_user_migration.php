@@ -19,6 +19,8 @@ final class UserMigration extends AbstractMigration
         $users->addColumn("created_at", "datetime", ["default" => "CURRENT_TIMESTAMP"]);
         $users->addColumn("updated_at", "datetime", ["default" => "CURRENT_TIMESTAMP"]);
 
+        $users->addIndex(["email", "cpf"], ['unique' => true]);
+
         $users->create();
     }
 
