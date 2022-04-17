@@ -17,7 +17,7 @@ class CreateProductController {
             $this->usecase->execute($request);
             
             http_response_code(201);
-            echo json_encode(["sucess" => "Product was created"]);
+            echo json_encode(["success" => "Product was created"]);
 
         } catch (Exception $err) {
             
