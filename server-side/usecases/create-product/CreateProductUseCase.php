@@ -21,7 +21,7 @@ class CreateProductUseCase {
         }
 
         if (empty($data["name"]) || empty($data["price"])) {
-            throw new Exception("Empty fields");
+            throw new Exception("Campos não podem ser vázios");
         }
 
         $data["price"] = (float) $data["price"];
