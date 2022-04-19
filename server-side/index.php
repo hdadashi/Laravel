@@ -5,7 +5,6 @@ require __DIR__ . "/vendor/autoload.php";
 $router = new \Bramus\Router\Router();
 
 $router->post("/user/create", function () {
-
     include_once __DIR__ . "/usecases/create-user/index.php";
     $createUserController->handle($_POST);
 });
