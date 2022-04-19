@@ -21,7 +21,7 @@ final class UserMigration extends AbstractMigration
 
         $users->addIndex(["email", "cpf"], ['unique' => true]);
 
-        $users->create();
+        $users->save();
     }
 
     public function down(): void {

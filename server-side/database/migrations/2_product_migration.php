@@ -17,7 +17,7 @@ final class ProductMigration extends AbstractMigration {
         $products->addColumn("created_at", "datetime", ["default" => "CURRENT_TIMESTAMP"]);
         $products->addColumn("updated_at", "datetime", ["default" => "CURRENT_TIMESTAMP"]);
         
-        $products->create();
+        $products->save();
     }
 
     public function down(): void {
