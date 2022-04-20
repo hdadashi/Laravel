@@ -4,6 +4,12 @@ require __DIR__ . "/vendor/autoload.php";
 
 $router = new \Bramus\Router\Router();
 
+$router->get("/", function () {
+    echo json_encode([
+        "message" => "Welcome to Hill API"
+    ]);
+});
+
 $router->post("/user/create", function () {
     include_once __DIR__ . "/usecases/create-user/index.php";
     $createUserController->handle($_POST);
