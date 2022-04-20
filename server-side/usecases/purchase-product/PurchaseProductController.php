@@ -11,6 +11,18 @@ class PurchaseProductController {
     }
 
     public function handle($request) {
-        $this->usecase->execute($request);
+
+        try {
+
+            $this->usecase->execute($request);
+
+            http_response_code(200);
+            echo json_encode(["success" => "Compra realizada com sucesso"]);
+
+        } catch (Exception $err) {
+
+            http_response_code(400);
+            echo json_encode(["error" => $err->getMessage()]);
+        }
     }
 }
