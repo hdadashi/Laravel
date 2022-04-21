@@ -11,10 +11,10 @@
     ],
     "minimum-stability": "stable",
     "require-dev": {
-        "robmorgan/phinx": "^0.12.10",
         "vlucas/phpdotenv": "^5.4"
     },
     "require": {
+        "robmorgan/phinx": "^0.12.10",
         "bramus/router": "~1.6"
     }
 }
