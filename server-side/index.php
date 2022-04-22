@@ -2,13 +2,16 @@
 
 require __DIR__ . "/vendor/autoload.php";
 
-$router = new \Bramus\Router\Router();
+/*
+ * Loading system environment variables, it is recommended to remove 
+ * these parameters when deploying to production environment.
+ *
+ */
 
-$router->get("/", function () {
-    echo json_encode([
-        "message" => "Welcome to Hill API"
-    ]);
-});
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/");
+$dotenv->load();
+
+$router = new \Bramus\Router\Router();
 
 $router->post("/user/create", function () {
     include_once __DIR__ . "/usecases/create-user/index.php";

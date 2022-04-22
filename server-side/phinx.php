@@ -2,6 +2,12 @@
 
 require __DIR__ . "/vendor/autoload.php";
 
+/*
+ * Loading system environment variables, it is recommended to remove 
+ * these parameters when deploying to production environment.
+ *
+ */
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/");
 $dotenv->load();
 
