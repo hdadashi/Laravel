@@ -18,6 +18,11 @@ $router->post("/user/create", function () {
     $createUserController->handle($_POST);
 });
 
+$router->get("/product/get(/\d+)?", function ($id = null) {
+    include_once __DIR__ . "/usecases/get-product/index.php";
+    $getProductController->handle($id);
+});
+
 $router->post("/product/create", function () {
     include_once __DIR__ . "/usecases/create-product/index.php";
     $createProductController->handle($_POST);
