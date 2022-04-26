@@ -5,6 +5,26 @@ include_once __DIR__ . "/../IProductProvider.php";
 
 class PostgreProductProvider extends PostgreSQLConnection implements IProductProvider {
 
+    public function get(?int $id = null): object | array {
+        $this->connect();
+    
+        if ($id === null) {
+            $stmt = $this->pdo->prepare("SELECT * FROM products;");
+            $stmt->execute();
+            $data = $stmt->fetchAll();
+
+            return $data;
+        
+        } else {
+            $stmt = $this->pdo->prepare("SELECT * FROM products WHERE id = ?;");
+            $stmt->bindParam(1, $id);
+            $stmt->execute();
+            $data = $stmt->fetch();
+
+            return $data;
+        }
+    }
+
     public function create(array $data): void {
         $this->connect();
 
