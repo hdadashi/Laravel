@@ -2,6 +2,12 @@
 
 require __DIR__ . "/vendor/autoload.php";
 
+// Testing environment
+header("Access-Control-Allow-Origin: http://localhost:8080", false);
+
+// Production environment
+// header("Access-Control-Allow-Origin: http://site.com", false);
+
 /*
  * Loading system environment variables, it is recommended to remove 
  * these parameters when deploying to production environment.
