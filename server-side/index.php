@@ -2,12 +2,6 @@
 
 require __DIR__ . "/vendor/autoload.php";
 
-// Testing environment
-header("Access-Control-Allow-Origin: http://localhost:8080", false);
-
-// Production environment
-// header("Access-Control-Allow-Origin: http://site.com", false);
-
 /*
  * Loading system environment variables, it is recommended to remove 
  * these parameters when deploying to production environment.
@@ -16,6 +10,8 @@ header("Access-Control-Allow-Origin: http://localhost:8080", false);
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/");
 $dotenv->load();
+
+header("Access-Control-Allow-Origin: {$_ENV['APP_ORIGIN']}", false);
 
 $router = new \Bramus\Router\Router();
 
@@ -34,8 +30,8 @@ $router->post("/product/create", function () {
     $createProductController->handle($_POST);
 });
 
-$router->post("/product/purchase", function () {
-    include_once __DIR__ . "/usecases/purchase-product/index.php";
+$router->post("/product/buy", function () {
+    include_once __DIR__ . "/usecases/buy-product/index.php";
     $purchaseProductController->handle($_POST);
 });
 
