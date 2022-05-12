@@ -7,9 +7,9 @@ use App\Http\Controllers\ProductController;
 Route::controller(PageController::class)->group(function () {
     Route::get("/", "index");
     Route::get("/products/{id?}", "products");
-    Route::get("/process-payment", "processPayment");
+    Route::get("/process-payment/{method}/{id}", "processPayment");
 });
 
 Route::controller(ProductController::class)->group(function () {
-    Route::post("/products/buy", "buy");
+    Route::post("/products/buy", "buyProductByCreditCard");
 });
