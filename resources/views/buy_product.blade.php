@@ -20,19 +20,12 @@
             </div>
 
             <div>
-                <button id="showPaymentMethodsBtn">Comprar</button>
-
-                <div id="paymentMethods">
-                    <a href="/process-payment/credit-card/{{ $product[0]->id }}">Cartão</a>
-                    <a href="/">Pix</a>
-                    <a href="/process-payment/ticket/{{ $product[0]->id }}">Boleto</a>
-                </div>
+                <a href="/process-payment/pix/{{ $product[0]->id }}">Comprar</a>
             </div>
 
         </div>
     @endif
 
-    <script src="{{ asset('/js/togglePaymentMethods.js') }}"></script>
 </body>
 
 </html>
