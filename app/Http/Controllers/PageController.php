@@ -20,7 +20,7 @@ class PageController extends Controller
             ->select("id", "title", "description", "amount", "thumbs")
             ->get();
 
-        return view("buy_product", ["product" => $product]);
+        return view("product", ["product" => $product]);
     }
 
     public function processPayment(string $method, int $id) {  
