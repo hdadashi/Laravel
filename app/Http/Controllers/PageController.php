@@ -8,31 +8,27 @@ use Illuminate\Support\Facades\DB;
 class PageController extends Controller
 {
     public function index() {
-        return view("welcome");
+
+        $products = DB::table("products")->get();
+        return view("welcome", ["products" => $products]);
     }
 
-    public function products(?int $id = null) {
+    public function product(int $id = null) {
 
-        if ($id == null) {
-
-            $products = DB::table("products")->get();
-            
-            return view("products", ["products" => $products]);
-        }
-
-        $product = DB::table("products")->where("id", "=", $id)->select("id", "title", "description", "amount", "thumbs")->get();
+        $product = DB::table("products")
+            ->where("id", "=", $id)
+            ->select("id", "title", "description", "amount", "thumbs")
+            ->get();
 
         return view("buy_product", ["product" => $product]);
     }
 
-    public function processPayment(string $method, int $id) {
+    public function processPayment(string $method, int $id) {  
 
-        if ($method === "credit-card") {
-            // ..
+        if ($method === "pix") {
+            return view("process_payment", [
+                "method" => $method,
+            ]);
         }
-
-        return view("process_payment", [
-            "method" => $method
-        ]);
     }
 }
