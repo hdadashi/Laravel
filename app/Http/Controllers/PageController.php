@@ -15,20 +15,34 @@ class PageController extends Controller
 
     public function product(int $id = null) {
 
+        \MercadoPago\SDK::setAccessToken($_ENV["MERCADOPAGO_ACCESS_TOKEN"]);
+
         $product = DB::table("products")
             ->where("id", "=", $id)
-            ->select("id", "title", "description", "amount", "thumbs")
+            ->select("id", "title", "description", "amount", "category")
             ->get();
 
-        return view("product", ["product" => $product]);
-    }
+        $preference = new \MercadoPago\Preference();
 
-    public function processPayment(string $method, int $id) {  
+        $item = new \MercadoPago\Item();
+        $item->title = $product[0]->title;
+        $item->quantity = 1;
+        $item->unit_price = (float) $product[0]->amount;
+        $item->description = $product[0]->description;
+        $item->category_id = $product[0]->category;
+        $item->currency_id = "BRL";
 
-        if ($method === "pix") {
-            return view("process_payment", [
-                "method" => $method,
-            ]);
-        }
-    }
+        $preference->items = array($item);
+        $preference->payment_methods = [
+            "excluded_payment_methods" => [
+                [
+                    "id" => "paypal",
+                ]
+            ]
+        ];
+
+        $preference->save();
+            
+        return view("product", ["product" => $product, "preferenceId" => $preference->id]);
+    }    
 }
