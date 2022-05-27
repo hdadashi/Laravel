@@ -24,7 +24,7 @@
             <section>
 
                 <div class="thumb">
-                    1
+                    <img src="/images/products/{{ json_decode($product[0]->thumbs)->image1 }}" alt="Product Image"/>
                 </div>
 
                 <article>
