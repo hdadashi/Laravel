@@ -35,7 +35,7 @@ class PageController extends Controller
 
         $product = DB::table("products")
             ->where("id", "=", $id)
-            ->select("id", "title", "description", "amount", "category")
+            ->select("id", "title", "description", "amount", "category", "thumbs")
             ->get();
 
         $preference = new \MercadoPago\Preference();
@@ -58,7 +58,7 @@ class PageController extends Controller
         ];
 
         $preference->save();
-            
+
         return view("product", ["product" => $product, "preferenceId" => $preference->id]);
     }    
 }
