@@ -1,0 +1,72 @@
+.contact {
+    padding: 6%;
+}
+
+.contact h1 {
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    color: #777;
+}
+
+.contact form {
+    display: grid;
+    padding: 2%;
+}
+
+.contact form .email-control {
+    display: grid;
+    width: 20%;
+}
+
+.contact form .email-control label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3em;
+    color: #555;
+    margin-bottom: 1.7%;
+}
+
+.contact form .email-control input {
+    padding: .8em;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 0 2px black; 
+}
+
+.contact form .email-control input:focus {
+    outline: none;
+}
+
+.contact form .message-control {
+    display: grid;
+    width: 40%;
+    margin-top: 2%;
+}
+
+.contact form .message-control textarea {
+    resize: none;
+    padding: 2%;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 0 2px black; 
+}
+
+.contact form .message-control textarea:focus {
+    outline: none;
+}
+
+.contact form .message-control button {
+    width: 30%;
+    margin-top: 1%;
+    border: none;
+    font-size: 1.3em;
+    font-family: "Nunito", sans-serif;
+    border-radius: 5px;
+    color: white;
+    background-color: #6699cc;
+}
+
+.contact form .message-control button:hover {
+    cursor: pointer;
+    background-color: #66aacc;
+}

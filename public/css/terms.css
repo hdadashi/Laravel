@@ -1,0 +1,16 @@
+.terms {
+    padding: 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 70vh;
+}
+
+.terms section {
+    margin-right: 4%;
+}
+
+.terms section p {
+    font-family: "Nunito", sans-serif;
+    color: #121;
+    font-size: 1.2em;
+}

@@ -1,0 +1,19 @@
+.about {
+    display: grid;
+    height: 70vh;
+    padding: 5%;
+    grid-template-rows: 1fr 4fr;
+}
+
+.about h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    color: #788;
+}
+
+.about p {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5em;
+    margin: 2%;
+    text-align: justify;
+}

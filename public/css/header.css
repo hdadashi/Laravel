@@ -1,0 +1,86 @@
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.navbar hgroup {
+    padding: 5%;
+}
+
+.navbar hgroup a {
+    text-decoration: none;
+    color: initial;
+}
+
+.navbar hgroup h1 {
+    font-family: 'Laila', sans-serif;
+}
+
+.navbar hgroup h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.navbar_links {
+    padding: 4%;
+}
+
+.navbar_links ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 15%);
+    grid-template-rows: auto;
+    justify-content: center;
+}
+
+.navbar_links ul li a {
+    font-size: 1.3em;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    color: #141d23;
+    padding-bottom: .5em;
+}
+
+.navbar_links ul li a:hover {
+    color: #202420;
+    border-bottom: 2px solid black;
+}
+
+.navbar_search-form {
+    padding: 6%;
+}
+
+.navbar_search-form form {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    padding: 1%;
+    width: 70%;
+
+    border: 1px solid #617082;
+    border-radius: .5rem;
+}
+
+.navbar_search-form input, button {
+    padding: 2%;
+}
+
+.navbar_search-form input:focus {
+    outline: none;
+}
+
+.navbar_search-form input {
+    border: none;
+    background: transparent;
+}
+
+
+.navbar_search-form button {
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    background: transparent;
+}
+
+.navbar_search-form button:hover {
+    cursor: pointer;
+}

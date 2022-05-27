@@ -1,0 +1,91 @@
+footer {
+    background: #fff;
+    border-top: 1px solid #bbb;
+}
+
+footer nav {
+    display: grid;
+    height: 20vh;
+    grid-template-columns: repeat(2, 25%);
+    justify-content: center;
+}
+
+footer nav .social-links {
+    display: grid;
+    grid-template-rows: repeat(3, 20%);
+    align-content: center;
+    justify-content: center;
+}
+
+footer nav .social-links ul {
+    list-style: none;
+}
+
+footer nav .social-links ul li {
+    display: flex;
+    align-items: center;
+    padding: 5%;
+}
+
+footer nav .social-links ul li img {
+    height: 30px;
+}
+
+footer nav .social-links ul li a {
+    font-size: 1.5em;
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: black;
+    margin-left: 5%;
+}
+
+footer nav .social-links ul li a:hover {
+    color: #222;
+}
+
+footer nav .info-links {
+    display: grid;
+    grid-template-rows: repeat(1, 20%);
+    align-content: center;
+}
+
+footer nav .info-links a {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black;
+    font-family: "Nunito", sans-serif;
+}
+
+footer nav .info-links a:hover {
+    color: #444;
+}
+
+footer nav .info-links span {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+footer div {
+    width: 100%;
+    padding: 2.2%;
+    display: flex;
+    justify-content: center;
+}
+
+footer div small {
+    margin: .5rem;
+    font-size: 15px;
+    font-size: 1rem; 
+    font-family: "Open Sans", sans-serif;
+}
+
+footer div small a {
+    color: #111;
+    text-decoration: none;
+}
+
+
+footer div small a:hover {
+    color: #777;
+}

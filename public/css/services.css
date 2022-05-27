@@ -1,0 +1,28 @@
+.services {
+    display: grid;
+    padding: 5%;
+
+    grid-template-rows: 15% 25% 40%;
+    height: 90vh;
+}
+
+.services h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    color: #788;
+}
+
+.services section {
+    width: 80%;
+}
+
+.services section h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    color: #222;
+}
+
+.services section p {
+    margin-top: 2%;
+    font-family: "Nunito", sans-serif;
+}
