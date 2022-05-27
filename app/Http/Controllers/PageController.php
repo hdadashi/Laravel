@@ -13,6 +13,22 @@ class PageController extends Controller
         return view("welcome", ["products" => $products]);
     }
 
+    public function about() {
+        return view("about");
+    }
+
+    public function contact() {
+        return view("contact");
+    }
+
+    public function terms() {
+        return view("terms");
+    } 
+ 
+    public function services() {
+        return view("services");
+    } 
+
     public function product(int $id = null) {
 
         \MercadoPago\SDK::setAccessToken($_ENV["MERCADOPAGO_ACCESS_TOKEN"]);
