@@ -1,9 +1,10 @@
 <header class="navbar">
     <hgroup>
 
-        <h1>Hill</h1>
-        <h2 id="header-subtitle"></h2>
-
+        <a href="/">
+            <h1>Hill</h1>
+            <h2 id="header-subtitle"></h2>
+        </a>
     </hgroup>
 
     <nav class="navbar_links">
