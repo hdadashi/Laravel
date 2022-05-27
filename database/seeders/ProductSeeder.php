@@ -7,61 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class ProductSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
     public function run()
     {
         DB::table("products")->insert([
-            "title" => "Notebook",
-            "amount" => 1500.0,
-            "description" => "uri laboriosam commodi eveniet quis err!",
-            "thumbs" => json_encode(["image1" => "1245257dsd242.jpg", "image2" => "1234567890.jpg"]),
+            "title" => "Notebook Intel Core i3 7th Gen 4GB RAM",
+            "amount" => 2700,
+            "description" => "Thank you for using my words in your work. I don't need a big house, just a two-floor condo - you could say I have lofty expectations. Logan Ipsum will loop at some point. I'm in a band that does Metallica covers with our private parts - it's called Myphallica. Petrovache. I have never known a Jack that was in good enough shape to name bodybuilding after him.",
+            "thumbs" => json_encode(["image1" => "notebook.webp"]),
             "category" => "Eletrônicos"
         ]);
-
-
-        DB::table("products")->insert([
-            "title" => "PC",
-            "amount" => 4500.0,
-            "description" => "veniet quis err!",
-            "thumbs" => json_encode(["image1" => "1245257dsd242.jpg", "image2" => "1234567890.jpg"]),
-            "category" => "Eletrônicos"
-        ]);
-
-        DB::table("products")->insert([
-            "title" => "TV",
-            "amount" => 2500.0,
-            "description" => "dasdasdjdas dhasji ahdiadhauri laboriosam commodi eveniet quis err!",
-            "thumbs" => json_encode(["image1" => "1245257dsd242.jpg", "image2" => "1234567890.jpg"]),
-            "category" => "Eletrônicos"
-        ]);
-
-        DB::table("products")->insert([
-            "title" => "Rádio",
-            "amount" => 200.0,
-            "description" => "very good radio to listen something uri laboriosam commodi eveniet quis err!",
-            "thumbs" => json_encode(["image1" => "1245257dsd242.jpg", "image2" => "1234567890.jpg"]),
-            "category" => "Eletrônicos"
-        ]);
-
-        DB::table("products")->insert([
-            "title" => "Relógio",
-            "amount" => 1500.0,
-            "description" => "relogio very bom kkk uri laboriosam commodi eveniet quis err!",
-            "thumbs" => json_encode(["image1" => "1245257dsd242.jpg", "image2" => "1234567890.jpg"]),
-            "category" => "Eletrônicos"
-        ]);
-
-        DB::table("products")->insert([
-            "title" => "Geladeira",
-            "amount" => 1500.0,
-            "description" => "Geladeira da nasa uri laboriosam commodi eveniet quis err!",
-            "thumbs" => json_encode(["image1" => "1245257dsd242.jpg", "image2" => "1234567890.jpg"]),
-            "category" => "Eletrodomésticos"
-        ]);
-
     }
 }
