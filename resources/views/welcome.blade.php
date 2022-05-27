@@ -31,7 +31,7 @@
 
                         <a href="/product/{{ $product->id }}" class="products_link">
                             <article class="products_product-container">
-                                <img src="/images/products/notebook.webp"/>
+                                <img src="/images/products/{{ json_decode($products[0]->thumbs)->image1 }}"/>
 
                                 <header>
                                     <h1>{{ $product->title }}</h1>
@@ -60,7 +60,7 @@
 
                         <a href="/product/{{ $product->id }}" class="products_link">
                             <article class="products_product-container">
-                                <img src="/images/products/notebook.webp"/>
+                                <img src="/images/products/{{ json_decode($products[0]->thumbs)->image1 }}"/>
 
                                 <header>
                                     <h1>{{ $product->title }}</h1>
@@ -89,7 +89,7 @@
 
                         <a href="/product/{{ $product->id }}" class="products_link">
                             <article class="products_product-container">
-                                <img src="/images/products/notebook.webp"/>
+                                <img src="/images/products/{{ json_decode($products[0]->thumbs)->image1 }}"/>
 
                                 <header>
                                     <h1>{{ $product->title }}</h1>
