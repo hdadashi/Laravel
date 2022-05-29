@@ -59,3 +59,18 @@
     justify-content: flex-end;
     align-items: end;
 }
+
+.product-page section article .pay-container a {
+    text-decoration: none;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.2em;
+    color: white;
+    background-color: #1688ff;
+    padding: .5em;
+    border-radius: 5px;
+}
+
+.product-page section article .pay-container a:hover {
+    background-color: #1688ee;
+}
+
