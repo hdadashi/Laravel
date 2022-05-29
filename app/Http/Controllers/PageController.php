@@ -59,6 +59,6 @@ class PageController extends Controller
 
         $preference->save();
 
-        return view("product", ["product" => $product, "preferenceId" => $preference->id]);
+        return view("product", ["product" => $product, "preference" => $preference]);
     }    
 }
