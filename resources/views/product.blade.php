@@ -35,10 +35,10 @@
 
                     <p>{{ $product[0]->description }}</p>
 
-                    <input type="hidden" value="{{ $preferenceId }}" id="preferenceId"/>
+                    <input type="hidden" value="{{ $preference->id }}" id="preferenceId"/>
                    
                     <div class="pay-container">
-                        <div class="pay-now"></div>
+                        <a href="{{ $preference->init_point }}" target="_blank">Comprar</a>
                     </div>
                         
                 </article>
@@ -48,8 +48,6 @@
         </main>
 
         @include('layouts.footer')
-
-        <script src="{{ asset('/js/checkoutPro.js') }}"></script>
 
     </body>
 </html>
