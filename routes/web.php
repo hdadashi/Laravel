@@ -14,6 +14,6 @@ Route::controller(PageController::class)->group(function () {
 });
 
 Route::controller(ProductController::class)->group(function () {
-    Route::post("/product/buy", "buy");
+    Route::post("/product/fast-search", "searchByKeypress");
 });
 
