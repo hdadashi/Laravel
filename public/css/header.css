@@ -84,3 +84,37 @@
 .navbar_search-form button:hover {
     cursor: pointer;
 }
+
+.navbar_search-form .results {
+    padding: 2%;
+    margin: 1%;
+    max-width: 100%;
+    border-radius: 2px;
+}
+
+
+.navbar_search-form .results article {
+    border-bottom: .1em solid #dddd;
+    padding: 2%;
+}
+
+.navbar_search-form .results article a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar_search-form .results article a h1 {
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+}
+
+.navbar_search-form .results article a span {
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    color: #24c075;
+}
+
+.navbar_search-form .results article:hover {
+    opacity: .8;
+}
+
