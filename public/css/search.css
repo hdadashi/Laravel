@@ -1,0 +1,71 @@
+.search-wrapper {
+    display: flex;
+    padding: 5%;
+    margin-top: 3%;
+    margin-bottom: 15%;
+    flex-direction: column;
+}
+
+.search-wrapper .notfound-message {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+}
+
+.search-wrapper a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-wrapper a:hover {
+    opacity: .8;
+    transition-duration: .2s;
+}
+
+.search-wrapper a article {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 2%;
+    width: 100%;
+}
+
+.search-wrapper a article .image {
+    display: flex;
+}
+
+.search-wrapper a article .image img {
+    max-width: 100%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.search-wrapper a article .info {
+    background-color: #ccc;
+    padding: 2%;
+}
+
+.search-wrapper a article .info nav {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .1rem solid #999;
+    padding-bottom: 1%;
+}
+
+.search-wrapper a article .info nav h1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.search-wrapper a article .info nav span {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.3em;
+    color: #24c075;
+}
+
+.search-wrapper a article .info p {
+    padding-top: 1%;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.2em;
+}
