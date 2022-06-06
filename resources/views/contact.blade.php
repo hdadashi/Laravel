@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -17,9 +17,9 @@
 
         <main class="contact">
           
-            <h1>Deixe sua mensagem</h1>
+            <h1>Deixe sua mensagem, feedback ou pergunta</h1>
             
-            <form method="POST">
+            <form method="POST" action="/contact/send-feedback">
 
                 @csrf
 
@@ -29,10 +29,16 @@
                 </div>
 
                 <div class="message-control">
-                    <textarea name="" id="" rows="8" placeholder="Deixe sua mensagem"></textarea>
+                    <textarea name="message" rows="8" placeholder="Deixe sua mensagem"></textarea>
                     <button type="submit">Enviar</button>
                 </div>
-                
+               
+                @if (session("message"))
+                    <div class="message-response">
+                        <p>{{ session("message") }}</p>
+                    </div>
+                @endif
+
             </form>
 
         </main>
