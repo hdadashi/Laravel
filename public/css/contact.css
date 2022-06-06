@@ -63,10 +63,34 @@
     font-family: "Nunito", sans-serif;
     border-radius: 5px;
     color: white;
-    background-color: #6699cc;
+    background-color: #09f;
 }
 
 .contact form .message-control button:hover {
     cursor: pointer;
-    background-color: #66aacc;
+    background-color: #66aadd;
+}
+
+.message-response {
+    margin-top: 2%;
+    display: flex;
+}
+
+.message-response p {
+    padding: 1em;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    background-color: #097;
+    border-radius: 10px;
+    animation-name: fromRightToLeft;
+    animation-duration: 1.3s;
+}
+
+@keyframes fromRightToLeft {
+    from {
+        margin-left: 15%;
+    } to {
+        margin-left: 0;
+    }
 }
