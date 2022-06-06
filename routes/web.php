@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
 
 Route::controller(PageController::class)->group(function () {
     Route::get("/", "index");
@@ -21,3 +23,6 @@ Route::controller(ProductController::class)->group(function () {
     Route::post("/product/fast-search", "searchByKeypress");
 });
 
+Route::controller(ContactController::class)->group(function () {
+    Route::post("/contact/send-feedback", "sendFeedback");
+});
