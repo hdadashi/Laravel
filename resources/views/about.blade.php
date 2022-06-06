@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head lang="pt-br">
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>About - Hill</title>
