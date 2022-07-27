@@ -16,7 +16,7 @@
 .products h2 {
     color: #233;
     font-family: "Open Sans", sans-serif;
-    font-weight: 400;
+    font-weight: 200;
     margin: 4%;
     text-align: center;
 }
@@ -71,4 +71,33 @@
     font-size: 1.2em;
     color: #24c075;
 }
+
+@media screen and (max-width: 800px) {
+
+    .core h1 {
+        font-size: 1.4em;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .products h2 {
+        font-size: 1em;
+    }
+
+    .products_product-container {
+        width: 20vw;
+    }
+
+    .products_product-container header h1 {
+        font-size: .9em;   
+    }
+
+    .products_product-container header span {
+        font-size: .7em;
+    }
+}
+
 
