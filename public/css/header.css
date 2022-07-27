@@ -25,20 +25,22 @@
     padding: 4%;
 }
 
+.navbar_links i {
+    display: none;
+}
+
 .navbar_links ul {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 15%);
-    grid-template-rows: auto;
+    display: flex;
     justify-content: center;
 }
 
 .navbar_links ul li a {
     font-size: 1.3em;
     font-family: 'Nunito', sans-serif;
+    padding: 0 1.2em 0.2em 1.2em;
     text-decoration: none;
     color: #141d23;
-    padding-bottom: .5em;
 }
 
 .navbar_links ul li a:hover {
@@ -73,12 +75,12 @@
     background: transparent;
 }
 
-
 .navbar_search-form button {
     display: flex;
     justify-content: flex-end;
     border: none;
     background: transparent;
+    padding: .3em;
 }
 
 .navbar_search-form button:hover {
@@ -88,10 +90,9 @@
 .navbar_search-form .results {
     padding: 2%;
     margin: 1%;
-    max-width: 100%;
+    max-width: 70%;
     border-radius: 2px;
 }
-
 
 .navbar_search-form .results article {
     border-bottom: .1em solid #dddd;
@@ -116,5 +117,82 @@
 
 .navbar_search-form .results article:hover {
     opacity: .8;
+}
+
+@media screen and (max-width: 1200px) {
+    hgroup a h1 { font-size: 1.5em; }
+    hgroup a h2 { font-size: 1.2em; }
+
+    .navbar_links ul li {
+        font-size: 0.9em;
+    }
+
+   .navbar_search-form .results {
+        padding: 1%;
+        margin: 0.5%;
+        max-width: 70%;
+    }
+
+   .navbar_search-form .results article a h1 {
+        font-size: .9em;
+    }
+
+   .navbar_search-form .results article a span {
+        font-size: .8em; 
+   }
+}
+
+@media screen and (max-width: 800px) {
+    hgroup a h1 { font-size: 1em; }
+    hgroup a h2 { font-size: 1em; }
+
+    .navbar_links {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+
+    .navbar_links i {
+        display: flex;
+        justify-content: center;
+    }
+   
+    .navbar_links i:hover {
+        cursor: pointer;
+    }
+
+    .navbar_links ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    .navbar_links ul li {
+        font-size: 0.9em;
+    } 
+    
+    .navbar_links ul li a:hover {
+        border: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .navbar {
+        display: flex;
+        width: 100%;
+    }
+
+    hgroup {
+        width: 50%;
+    }
+
+    .navbar_links ul li {
+        font-size: 0.8em;
+        margin: .2em;
+    }
+
+    .navbar_links ul, .navbar_links ul li {
+        padding: 0;
+    }
 }
 
