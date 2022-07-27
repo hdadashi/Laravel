@@ -89,3 +89,47 @@ footer div small a {
 footer div small a:hover {
     color: #777;
 }
+
+
+@media screen and (max-width: 800px) {
+
+    footer nav .social-links ul li {
+        padding: 0%;
+    }
+
+    footer nav .social-links ul li img {
+        height: 25px;
+    }
+
+    footer nav .social-links ul li a {
+        font-size: .9em;
+    }
+
+    footer nav .info-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30vw;
+    }
+
+    footer nav .info-links a {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    footer nav {
+        display: flex;
+        width: 100%;
+    }
+
+    footer nav .social-links {
+        width: 35%;
+    }
+
+    footer nav .info-links {
+        width: 65%;
+    }
+}
+
