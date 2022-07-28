@@ -94,3 +94,41 @@
         margin-left: 0;
     }
 }
+
+@media screen and (max-width: 800px) {
+
+    .contact h1 {
+        font-size: 1.5em;
+    }
+
+    .contact form .email-control label {
+        font-size: 1.2em;
+        margin-bottom: 1.7%;
+    }
+
+    .contact form .message-control textarea {
+        width: 50vw;
+    }
+
+
+    .contact form .message-control button {
+        margin-top: 3%;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .contact h1 {
+        font-size: 1.2em;
+        margin-bottom: 2%;
+    }
+
+    .contact form .email-control label {
+        font-size: 1em;
+    }
+
+    .contact form .message-control textarea {
+        width: 60vw;
+    } 
+}
