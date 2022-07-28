@@ -26,3 +26,40 @@
     margin-top: 2%;
     font-family: "Nunito", sans-serif;
 }
+
+@media screen and (max-width: 600px) { 
+
+    .services {
+        display: grid;
+        padding: 3%;
+
+        grid-template-rows: 9% 35% 70%;
+        height: 70vh;
+    }
+
+    .services section {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .services {
+        display: grid;
+
+        grid-template-rows: 9% 40% 70%;
+        height: 90vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+}
