@@ -24,8 +24,8 @@
                 @csrf
 
                 <div class="email-control"> 
-                    <label for="email">Seu email:</label>
-                    <input type="email" name="email" id="email"/>
+                    <label for="email">Seu email</label>
+                    <input type="email" name="email" id="email" placeholder="Escreva seu email" />
                 </div>
 
                 <div class="message-control">
