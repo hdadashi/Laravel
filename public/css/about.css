@@ -17,3 +17,25 @@
     margin: 2%;
     text-align: justify;
 }
+
+@media screen and (max-width: 800px) {
+    
+    .about h1 {
+        font-size: 1.7em;
+    }
+
+    .about p {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    
+    .about h1 {
+        font-size: 1.4em;
+    }
+
+    .about p {
+        font-size: 1em;
+    }
+}
