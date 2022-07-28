@@ -177,6 +177,10 @@
 
 @media screen and (max-width: 450px) {
 
+    hgroup a h2 {
+        display: none;
+    }
+
     .navbar {
         display: flex;
         width: 100%;
