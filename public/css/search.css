@@ -32,10 +32,13 @@
 
 .search-wrapper a article .image {
     display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: white;
 }
 
 .search-wrapper a article .image img {
-    max-width: 100%;
+    width: 100%;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
 }
@@ -68,4 +71,33 @@
     padding-top: 1%;
     font-family: "Nunito", sans-serif;
     font-size: 1.2em;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .search-wrapper a article .info nav h1 {
+        font-size: 1.1em;
+    }
+
+    .search-wrapper a article .info nav span {
+        font-size: .9em;
+    }
+
+    .search-wrapper a article .info p {
+        font-size: 1em;
+
+        overflow: hidden; 
+        text-overflow: clip ellipsis;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical; 
+    }
+}
+
+@media screen and (max-width: 550px) {
+ 
+    .search-wrapper a article .image {
+        width: 20vw;
+    }
 }
