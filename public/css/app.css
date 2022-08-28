@@ -1,13 +1,1 @@
-@import url('https://fonts.googleapis.com/css2?family=Laila:wght@500&family=Nunito:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css');
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-
-body {
-    background-color: #eff1f1;
-}

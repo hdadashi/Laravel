@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="Eng">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Buscar produto - Hill</title>
+        <title>جستجو</title>
 
         <link rel="stylesheet" href="{{ asset("/css/app.css") }}" type="text/css">
         <link rel="stylesheet" href="{{ asset("/css/search.css") }}" type="text/css">
@@ -23,13 +23,13 @@
                     <a href="/product/{{ $product->id }}">
                         <article>
                             <div class="image">
-                                <img src="/images/products/{{ json_decode($product->thumbs)->image1 }}" alt="Imagem produto"/>
+                                <img src="/images/products/{{ json_decode($product->thumbs)->image1 }}" alt="image"/>
                             </div>
 
                             <div class="info">
                                 <nav>
                                     <h1>{{ $product->title }}</h1>
-                                    <span>R${{ $product->amount }}</span>
+                                    <span>تومان{{ number_format($product->amount*100000) }}</span>
                                 </nav>
 
                                 <p>{{ $product->description }}</p>
@@ -40,7 +40,7 @@
                 @endforeach
 
             @else
-                <h1 class="notfound-message">Produto não encontrado</h1>
+                <h1 class="notfound-message">محصول یافت نشد</h1>
             @endif
 
         </section>

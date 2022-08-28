@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="eng">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Contato - Hill</title>
+        <title>ارتباط با ما</title>
 
         <link rel="stylesheet" href="{{ asset("/css/app.css") }}" type="text/css">
         <link rel="stylesheet" href="{{ asset("/css/header.css") }}" type="text/css">
@@ -17,20 +17,20 @@
 
         <main class="contact">
           
-            <h1>Deixe sua mensagem, feedback ou pergunta</h1>
+            <h1>پیام، بازخورد یا سوال خود را بنویسید</h1>
             
             <form method="POST" action="/contact/send-feedback">
 
                 @csrf
 
                 <div class="email-control"> 
-                    <label for="email">Seu email</label>
-                    <input type="email" name="email" id="email" placeholder="Escreva seu email" />
+                    <label for="email">ایمیل شما</label>
+                    <input type="email" name="email" id="email" placeholder="ایمیل خود را بنویسید" />
                 </div>
 
                 <div class="message-control">
-                    <textarea name="message" rows="8" placeholder="Deixe sua mensagem"></textarea>
-                    <button type="submit">Enviar</button>
+                    <textarea name="message" rows="8" placeholder="پیغامتان را بگذارید"></textarea>
+                    <button type="submit">ارسال</button>
                 </div>
                
                 @if (session("message"))

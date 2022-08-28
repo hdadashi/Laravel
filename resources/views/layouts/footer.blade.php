@@ -21,12 +21,12 @@
         </div>
 
         <div class="info-links">
-            <a href="/terms">Política de privacidade</a>
-            <span>fakemail@hill.com</span>
+            <a href="/terms">سیاست حفظ حریم خصوصی</a>
+            <span>hdadashi.ie@gmail.com</span>
         </div>
     </nav>
 
     <div>
-        <small>&copy; 2022 Hill, by <a href="https://github.com/ianpatricck" target="_blank">Ian Patrick</a></small>
+        <small>&copy; 2022 Laptop Site, by <a href="https://github.com/hosseindadashi" target="_blank">Hossein Dadashi</a></small>
     </div>
 </footer>

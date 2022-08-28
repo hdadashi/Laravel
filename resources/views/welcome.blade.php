@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="eng">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bem vindo - Hill</title>
+        <title>سایت خرید لپ تاپ</title>
 
         <link rel="stylesheet" href="{{ asset("/css/app.css") }}" type="text/css">
         <link rel="stylesheet" href="{{ asset("/css/header.css") }}" type="text/css">
@@ -17,13 +17,13 @@
 
         <main class="core">
 
-            <h1>Adicionados recentemente</h1>
+            <h1>لپ تاپ های موجود </h1>
 
             <section class="products">
 
                 @if (count($products) < 1)
 
-                    <h2>Não há produtos cadastrados</h2>
+                    <h2>لپ تاپی یافت نشد!</h2>
 
                 @else
 
@@ -35,7 +35,7 @@
 
                                 <header>
                                     <h1>{{ $product->title }}</h1>
-                                    <span>R${{ $product->amount }}</span>
+                                    <span>{{ number_format($product->amount*10000) }}تومان</span>
                                 </header>
                             </article>
                         </a>
@@ -46,13 +46,13 @@
 
             </section>
 
-            <h1>Mais vendidos</h1>
+            <h1>پر فروش ها</h1>
 
             <section class="products">
 
                 @if (count($products) < 1)
 
-                    <h2>Não há produtos cadastrados</h2>
+                    <h2>لپ تاپی یافت نشد!</h2>
 
                 @else
 
@@ -64,7 +64,7 @@
 
                                 <header>
                                     <h1>{{ $product->title }}</h1>
-                                    <span>R${{ $product->amount }}</span>
+                                    <span>{{ number_format($product->amount*10000) }}تومان</span>
                                 </header>
                             </article>
                         </a>
@@ -75,13 +75,13 @@
 
             </section>
 
-            <h1>Destaques</h1>
+            <h1>لپ تاپ های اقتصادی</h1>
 
             <section class="products">
 
                 @if (count($products) < 1)
 
-                    <h2>Não há produtos cadastrados</h2>
+                    <h2>لپ تاپی یافت نشد!</h2>
 
                 @else
 
@@ -93,7 +93,7 @@
 
                                 <header>
                                     <h1>{{ $product->title }}</h1>
-                                    <span>R${{ $product->amount }}</span>
+                                    <span>{{ number_format($product->amount*10000) }}تومان</span>
                                 </header>
                             </article>
                         </a>

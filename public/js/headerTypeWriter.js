@@ -1,4 +1,4 @@
-var subtitleContent = ["My Simple Virtual Store"];
+var subtitleContent = ["به سایت ما خوش آمدید"];
 var position = 0; 
 
 const speed = 80;

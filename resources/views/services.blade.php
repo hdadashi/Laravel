@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="eng">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Serviços - Hill</title>
+        <title>خدمات</title>
 
         <link rel="stylesheet" href="{{ asset("/css/app.css") }}" type="text/css">
         <link rel="stylesheet" href="{{ asset("/css/header.css") }}" type="text/css">
@@ -16,24 +16,24 @@
 
         <main class="services">
            
-            <h2>Serviços prestados</h1>
+            <h2>خدمات</h1>
 
             <section>
              
-                <h3>Nossos produtos</h2>
+                <h3>محصولات ما</h2>
 
                 <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    "!!!ما خیلی خوبیم"
                 </p>
 
             </section>
 
             <section>
              
-                <h3>Compra</h2>
+                <h3>خرید</h2>
 
                 <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    "!!!خیلی خوب"
                 </p>
             
             </section>
